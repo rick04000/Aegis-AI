@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eaglets - AI Investment Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/space-grotesk/2.0.0/space-grotesk.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Eaglets
+            </a>
+            <nav>
+                <a href="#about" class="btn">Explore</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="ticker-tape">
+        <div class="ticker-content">
+            <div class="ticker-item positive">BTC/USD +2.3%</div>
+            <div class="ticker-item negative">ETH/USD -1.1%</div>
+            <div class="ticker-item positive">Portfolio A +5.2%</div>
+            <div class="ticker-item">Latest Trade: AAPL $180.25</div>
+            <div class="ticker-item positive">AI Signal: Strong Buy NVDA</div>
+            <!-- Duplicate items for continuous scroll -->
+            <div class="ticker-item positive">BTC/USD +2.3%</div>
+            <div class="ticker-item negative">ETH/USD -1.1%</div>
+            <div class="ticker-item positive">Portfolio A +5.2%</div>
+            <div class="ticker-item">Latest Trade: AAPL $180.25</div>
+            <div class="ticker-item positive">AI Signal: Strong Buy NVDA</div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>AI-Powered Investment Intelligence</h1>
+            <p>Experience the future of investment management through advanced artificial intelligence and machine learning.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="stats">
+        <div class="container">
+            <h2>Live Performance</h2>
+            <div class="live-stats">
+                <div class="stats-card">
+                    <h3>Total Assets</h3>
+                    <div class="stats-value" id="totalAssets">$1.2B</div>
+                    <p>+12.5% this month</p>
+                </div>
+                <div class="stats-card">
+                    <h3>Active Strategies</h3>
+                    <div class="stats-value" id="activeStrategies">24</div>
+                    <p>Across 6 markets</p>
+                </div>
+                <div class="stats-card">
+                    <h3>Success Rate</h3>
+                    <div class="stats-value" id="successRate">92.4%</div>
+                    <p>Last 30 days</p>
+                </div>
+                <div class="stats-card">
+                    <h3>AI Predictions</h3>
+                    <div class="stats-value" id="aiPredictions">147</div>
+                    <p>New signals today</p>
+                </div>
+            </div>
+
+            <div class="performance-chart">
+                <div class="chart-controls">
+                    <button class="chart-control active">1D</button>
+                    <button class="chart-control">1W</button>
+                    <button class="chart-control">1M</button>
+                    <button class="chart-control">1Y</button>
+                </div>
+                <div id="chartContainer">
+                    <svg width="100%" height="300" style="stroke: var(--accent-color); fill: none;">
+                        <path d="M0,150 C100,100 200,200 300,50 C400,150 500,100 600,150 C700,200 800,150 900,100" 
+                              style="stroke-width: 2;" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="ai-insights">
+                <h3>Latest AI Insights</h3>
+                <div class="insight-item">
+                    <div class="insight-indicator"></div>
+                    <div>
+                        <h4>Market Volatility Alert</h4>
+                        <p>AI detected increased market volatility in tech sector. Adjusting portfolio allocation.</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-indicator"></div>
+                    <div>
+                        <h4>New Trading Opportunity</h4>
+                        <p>Pattern recognition identified potential arbitrage in crypto markets.</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-indicator"></div>
+                    <div>
+                        <h4>Risk Assessment Update</h4>
+                        <p>Portfolio risk levels optimized based on latest market conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Our Technology</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Intelligent Analysis</h3>
+                    <p>Advanced algorithms process market data in real-time for optimal decision making.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Risk Management</h3>
+                    <p>Predictive modeling identifies and mitigates potential risks before they materialize.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Portfolio Optimization</h3>
+                    <p>Dynamic rebalancing ensures your portfolio maintains peak performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Leadership</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="/api/placeholder/120/120" alt="Team Member">
+                    <h3>Alex Chen</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/120/120" alt="Team Member">
+                    <h3>Sarah Park</h3>
+                    <p>Head of AI Strategy</p>
+                </div>
+                <div class="team-member">
+                    <img src="/api/placeholder/120/120" alt="Team Member">
+                    <h3>David Kumar</h3>
+                    <p>Investment Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question">How does Eaglets use AI in investment decisions?</div>
+                <div class="faq-answer">Our AI systems analyze vast amounts of market data, identifying patterns and opportunities through advanced machine learning algorithms.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What makes Eaglets different from traditional investment platforms?</div>
+                <div class="faq-answer">Eaglets combines cutting-edge AI technology with traditional investment expertise to deliver superior results and real-time portfolio optimization.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How secure is the platform?</div>
+                <div class="faq-answer">We employ military-grade encryption and multiple layers of security protocols to ensure your investments and data are protected at all times.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Eaglets</h3>
+                    <p>Next generation AI investment platform</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
