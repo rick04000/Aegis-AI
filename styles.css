@@ -263,7 +263,7 @@ header {
     left: 10px;
     width: 4px;
     height: 100%;
-    background: #2A3BFF;
+    background: var(--card-background);
     border-radius: 2px;
 }
 
