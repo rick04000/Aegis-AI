@@ -197,7 +197,7 @@ header {
 }
 
 .tokenomics ul li {
-    background: #ffffff;
+    background: linear-gradient(135deg, #0F111A, #2A3BFF);
     padding: 1rem 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
