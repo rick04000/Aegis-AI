@@ -263,7 +263,7 @@ header {
     left: 10px;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, #4B56D2, #6C63FF);
+    background: #2A3BFF;
     border-radius: 2px;
 }
 
@@ -290,7 +290,7 @@ header {
     top: 50%;
     left: -60px;
     transform: translateY(-50%);
-    background: #4B56D2;
+    background: #2A3BFF;
     color: #fff;
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
@@ -302,7 +302,7 @@ header {
 
 /* Highlight Active Item */
 .timeline-item.active {
-    border: 2px solid #4B56D2;
+    border: 2px solid #2A3BFF;
     background: #f0f0ff;
     transform: scale(1.02);
 }
