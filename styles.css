@@ -279,6 +279,12 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    justify-items: center;
+}
+
+.timeline-item h4 {
+    margin-bottom: 50px;
+    font-size: 1.2rem;
 }
 
 .timeline-item:hover {
