@@ -292,11 +292,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const chart = new PerformanceChart();
 });
 
+// Select all timeline items
+const timelineItems = document.querySelectorAll('.timeline-item');
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => {
-        item.addEventListener('click', () => {
-            timelineItems.forEach(el => el.classList.remove('active'));
-            item.classList.add('active');
-        });
+// Add click event listener
+timelineItems.forEach((item) => {
+    item.addEventListener('click', () => {
+        // Remove active class from all items
+        timelineItems.forEach((el) => el.classList.remove('active'));
+        
+        // Add active class to the clicked item
+        item.classList.add('active');
     });
+});
