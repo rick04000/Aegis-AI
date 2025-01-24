@@ -291,3 +291,12 @@ class PerformanceChart {
 document.addEventListener('DOMContentLoaded', () => {
     const chart = new PerformanceChart();
 });
+
+
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        item.addEventListener('click', () => {
+            timelineItems.forEach(el => el.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
