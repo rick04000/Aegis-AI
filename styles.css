@@ -556,6 +556,10 @@ footer {
     margin-top: 64px;
 }
 
+.logofooter{
+    width: 125px;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
