@@ -308,8 +308,8 @@ timelineItems.forEach((item) => {
 
 // Whitepaper Download Functionality
 document.getElementById("download-whitepaper").addEventListener("click", function () {
-    const fileUrl = "path-to-your-whitepaper.pdf"; // Replace with the actual file URL
-    const fileName = "AegisAI_Whitepaper.pdf";
+    const fileUrl = "/src/AegisAI Coin Whitepaper.pdf"; // Replace with the actual file URL
+    const fileName = "AegisAI Coin Whitepaper.pdf";
   
     // Create a temporary anchor element for download
     const anchor = document.createElement("a");
