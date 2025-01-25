@@ -110,6 +110,12 @@ header {
     100% { transform: translateX(-50%); }
 }
 
+#3d-viewer {
+    width: 100vw;
+    height: 100vh;
+    background-color: #111; /* Donkergrijs voor een moderne uitstraling */
+  }
+
 /* Hero Section */
 .hero {
     min-height: 75vh;

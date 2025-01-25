@@ -323,5 +323,58 @@ document.getElementById("download-whitepaper").addEventListener("click", functio
   
     // Remove the temporary element
     document.body.removeChild(anchor);
-  });
+});
   
+// Basis setup
+ const viewer = document.getElementById("3d-viewer");
+ const scene = new THREE.Scene();
+ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+ const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+ // Renderer instellen
+ renderer.setSize(window.innerWidth, window.innerHeight);
+ renderer.setPixelRatio(window.devicePixelRatio);
+ viewer.appendChild(renderer.domElement);
+
+ // Licht toevoegen
+ const ambientLight = new THREE.AmbientLight(0x404040, 2); // Zacht licht
+ scene.add(ambientLight);
+
+ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+ directionalLight.position.set(5, 10, 7.5).normalize();
+ scene.add(directionalLight);
+
+ // Camera positie
+ camera.position.set(0, 1, 5); // Positie iets naar achteren
+
+ // GLB-bestand laden
+ const loader = new THREE.GLTFLoader();
+ loader.load(
+  "path/to/your/model.glb", // Vervang dit met het pad naar je .glb-bestand
+  function (gltf) {
+    const model = gltf.scene;
+    model.scale.set(1, 1, 1); // Schaal aanpassen indien nodig
+    scene.add(model);
+  },
+  function (xhr) {
+    console.log((xhr.loaded / xhr.total) * 100 + "% geladen");
+  },
+  function (error) {
+    console.error("Er is een fout opgetreden tijdens het laden van het GLB-bestand:", error);
+  }
+);
+
+// Animatie loop
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
+animate();
+
+// Responsieve canvas
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
