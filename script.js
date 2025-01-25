@@ -331,7 +331,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TextureLoader } from 'three';
 
 // Set up scene, camera, and renderer
-const container = document.getElementById('three-container');
+const container = document.getElementById('d3viewer');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 camera.position.set(0, 2, 5);
