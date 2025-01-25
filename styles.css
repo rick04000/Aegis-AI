@@ -164,7 +164,7 @@ header {
 
 /* Whitepaper Section Styles */
 .whitepaper-section {
-    background: linear-gradient(135deg, #f8f9fc, #eef2f9);
+    background-color: var(--background-color);
     text-align: center;
     padding: 2rem 1rem;
     border-radius: 12px;
