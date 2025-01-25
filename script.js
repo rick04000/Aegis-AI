@@ -325,56 +325,80 @@ document.getElementById("download-whitepaper").addEventListener("click", functio
     document.body.removeChild(anchor);
 });
   
-// Basis setup
- const viewer = document.getElementById("d3viewer");
- const scene = new THREE.Scene();
- const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
- const renderer = new THREE.WebGLRenderer({ antialias: true });
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { TextureLoader } from 'three';
 
- // Renderer instellen
- renderer.setSize(window.innerWidth, window.innerHeight);
- renderer.setPixelRatio(window.devicePixelRatio);
- viewer.appendChild(renderer.domElement);
+// Set up scene, camera, and renderer
+const container = document.getElementById('three-container');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+camera.position.set(0, 2, 5);
 
- // Licht toevoegen
- const ambientLight = new THREE.AmbientLight(0x404040, 2); // Zacht licht
- scene.add(ambientLight);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.shadowMap.enabled = true; // Enable shadows
+container.appendChild(renderer.domElement);
 
- const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
- directionalLight.position.set(5, 10, 7.5).normalize();
- scene.add(directionalLight);
 
- // Camera positie
- camera.position.set(0, 1, 5); // Positie iets naar achteren
 
- // GLB-bestand laden
- const loader = new THREE.GLTFLoader();
- loader.load(
-  "/src/coin.glb", // Vervang dit met het pad naar je .glb-bestand
-  function (gltf) {
+// Add lighting
+const sunlight = new THREE.DirectionalLight(0xffffff, 1);
+sunlight.position.set(10, 20, 10);
+sunlight.castShadow = true;
+scene.add(sunlight);
+
+const ambientLight = new THREE.AmbientLight(0xaaaaaa, 0.4);
+scene.add(ambientLight);
+
+// Load the 3D squirrel model
+const loader = new GLTFLoader();
+let mixer;
+loader.load('./src/coin.glb', (gltf) => {
     const model = gltf.scene;
-    model.scale.set(1, 1, 1); // Schaal aanpassen indien nodig
+    model.traverse((child) => {
+        if (child.isMesh) {
+            child.castShadow = true;
+        }
+    });
     scene.add(model);
-  },
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total) * 100 + "% geladen");
-  },
-  function (error) {
-    console.error("Er is een fout opgetreden tijdens het laden van het GLB-bestand:", error);
-  }
-);
 
-// Animatie loop
-function animate() {
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
+    // Apply animations if available
+    if (gltf.animations.length > 0) {
+        mixer = new THREE.AnimationMixer(model);
+        gltf.animations.forEach((clip) => {
+            mixer.clipAction(clip).play();
+        });
+    }
 
-animate();
-
-// Responsieve canvas
-window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    model.position.set(0, 0, 0); // Pin to the ground
+    model.scale.set(0.5, 0.5, 0.5);
+}, undefined, (error) => {
+    console.error('An error occurred:', error);
 });
+
+
+// Add OrbitControls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.minDistance = 1;
+controls.maxDistance = 20;
+
+// Handle resizing
+window.addEventListener('resize', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
+// Render loop
+const clock = new THREE.Clock();
+function animate() {
+    requestAnimationFrame(animate);
+    if (mixer) mixer.update(clock.getDelta());
+    controls.update();
+    renderer.render(scene, camera);
+}
+animate();
