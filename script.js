@@ -350,7 +350,7 @@ document.getElementById("download-whitepaper").addEventListener("click", functio
  // GLB-bestand laden
  const loader = new THREE.GLTFLoader();
  loader.load(
-  "/src/Coin.glb", // Vervang dit met het pad naar je .glb-bestand
+  "/src/coin.glb", // Vervang dit met het pad naar je .glb-bestand
   function (gltf) {
     const model = gltf.scene;
     model.scale.set(1, 1, 1); // Schaal aanpassen indien nodig
