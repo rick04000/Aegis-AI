@@ -173,19 +173,19 @@ header {
   
   .whitepaper-section h2 {
     font-size: 2rem;
-    color: #4B56D2;
+    color: #2A3BFF;
     margin-bottom: 1rem;
   }
   
   .whitepaper-section p {
     font-size: 1rem;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     line-height: 1.6;
   }
   
   .whitepaper-section .btn {
-    background: #4B56D2;
+    background: #2A3BFF;
     color: #fff;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
