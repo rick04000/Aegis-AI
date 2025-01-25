@@ -305,3 +305,23 @@ timelineItems.forEach((item) => {
         item.classList.add('active');
     });
 });
+
+// Whitepaper Download Functionality
+document.getElementById("download-whitepaper").addEventListener("click", function () {
+    const fileUrl = "path-to-your-whitepaper.pdf"; // Replace with the actual file URL
+    const fileName = "AegisAI_Whitepaper.pdf";
+  
+    // Create a temporary anchor element for download
+    const anchor = document.createElement("a");
+    anchor.href = fileUrl;
+    anchor.download = fileName;
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+  
+    // Trigger the download
+    anchor.click();
+  
+    // Remove the temporary element
+    document.body.removeChild(anchor);
+  });
+  

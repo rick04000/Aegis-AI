@@ -162,6 +162,59 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
+/* Whitepaper Section Styles */
+.whitepaper-section {
+    background: linear-gradient(135deg, #f8f9fc, #eef2f9);
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .whitepaper-section h2 {
+    font-size: 2rem;
+    color: #4B56D2;
+    margin-bottom: 1rem;
+  }
+  
+  .whitepaper-section p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .whitepaper-section .btn {
+    background: #4B56D2;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .whitepaper-section .btn:hover {
+    background: #6C63FF;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .whitepaper-section h2 {
+      font-size: 1.5rem;
+    }
+  
+    .whitepaper-section p {
+      font-size: 0.9rem;
+    }
+  
+    .whitepaper-section .btn {
+      font-size: 0.9rem;
+    }
+  }
+  
+
 /* Tokenomics Section */
 .tokenomics {
     background: linear-gradient(135deg, #0F111A, #1E2132);
