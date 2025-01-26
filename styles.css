@@ -110,8 +110,6 @@ header {
     100% { transform: translateX(-50%); }
 }
 
-
-
 /* Hero Section */
 .hero {
     min-height: 75vh;
@@ -121,12 +119,6 @@ header {
     position: relative;
     padding: 160px 0 120px;
 }
-
- #d3viewer {
-    width: 100vw;
-    height: 100vh;
-    background-color: #222; /* Donkergrijze achtergrond voor een modern uiterlijk */
- }
 
 .hero-content {
     max-width: 700px;

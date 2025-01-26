@@ -7,8 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/space-grotesk/2.0.0/space-grotesk.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 </head>
 <body>
     
@@ -112,7 +110,7 @@
                 </div>
             </div>
 
-            <div id="performance-chart"></div>
+            <div class="performance-chart">
                 <div class="chart-controls">
                     <button class="chart-control active" data-period="1D">1D</button>
                     <button class="chart-control" data-period="1W">1W</button>
@@ -191,9 +189,6 @@
     </section>
     
     <section id="whitepaper-download" class="whitepaper-section">
-        <div id="d3viewer"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>      
         <div class="container">
           <h2>Download Our Whitepaper</h2>
           <p>Discover all the details about AegisAI Coin, our technology, and our roadmap in the whitepaper.</p>
@@ -362,7 +357,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

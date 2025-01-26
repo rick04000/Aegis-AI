@@ -1,5 +1,3 @@
-
-
 // Simulate live updates for stats
 function updateStats() {
     const totalAssets = document.getElementById('totalAssets');
@@ -17,8 +15,6 @@ function updateStats() {
         aiPredictions.textContent = predictionsValue;
     }, 3000);
 }
-
-
 
 // FAQ Accordion functionality
 function initFAQ() {
@@ -327,82 +323,5 @@ document.getElementById("download-whitepaper").addEventListener("click", functio
   
     // Remove the temporary element
     document.body.removeChild(anchor);
-});
+  });
   
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { TextureLoader } from 'three';
-
-// Set up scene, camera, and renderer
-const container = document.getElementById('d3viewer');
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-camera.position.set(0, 2, 5);
-
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.shadowMap.enabled = true; // Enable shadows
-container.appendChild(renderer.domElement);
-
-
-
-// Add lighting
-const sunlight = new THREE.DirectionalLight(0xffffff, 1);
-sunlight.position.set(10, 20, 10);
-sunlight.castShadow = true;
-scene.add(sunlight);
-
-const ambientLight = new THREE.AmbientLight(0xaaaaaa, 0.4);
-scene.add(ambientLight);
-
-// Load the 3D squirrel model
-const loader = new GLTFLoader();
-let mixer;
-loader.load('./src/coin.glb', (gltf) => {
-    const model = gltf.scene;
-    model.traverse((child) => {
-        if (child.isMesh) {
-            child.castShadow = true;
-        }
-    });
-    scene.add(model);
-
-    // Apply animations if available
-    if (gltf.animations.length > 0) {
-        mixer = new THREE.AnimationMixer(model);
-        gltf.animations.forEach((clip) => {
-            mixer.clipAction(clip).play();
-        });
-    }
-
-    model.position.set(0, 0, 0); // Pin to the ground
-    model.scale.set(0.5, 0.5, 0.5);
-}, undefined, (error) => {
-    console.error('An error occurred:', error);
-});
-
-
-// Add OrbitControls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.minDistance = 1;
-controls.maxDistance = 20;
-
-// Handle resizing
-window.addEventListener('resize', () => {
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-});
-
-// Render loop
-const clock = new THREE.Clock();
-function animate() {
-    requestAnimationFrame(animate);
-    if (mixer) mixer.update(clock.getDelta());
-    controls.update();
-    renderer.render(scene, camera);
-}
-animate();
