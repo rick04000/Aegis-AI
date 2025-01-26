@@ -1,3 +1,5 @@
+
+
 // Simulate live updates for stats
 function updateStats() {
     const totalAssets = document.getElementById('totalAssets');
@@ -15,6 +17,8 @@ function updateStats() {
         aiPredictions.textContent = predictionsValue;
     }, 3000);
 }
+
+
 
 // FAQ Accordion functionality
 function initFAQ() {
